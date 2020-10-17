@@ -1,0 +1,44 @@
+from graphics import *
+def main():
+    x=int(input("Enter x-coordinate of the pixel="))
+    y=int(input("Enter y-coordinate of the pixel="))
+    x1=int(input("Enter x-coordinate of first point on the line="))
+    y1=int(input("Enter y-coordinate of first point on the line="))
+    x2=int(input("Enter x-coordinate of second point on the line=")) 
+    y2=int(input("Enter y-coordinate of second point on the line="))
+    if x1==x2:
+        print("\n\nLine is vertical")
+        if x<x1:
+            print("\nPoint is at the left of the line")
+        if x==x1:
+            print("\nPoint is on the line")
+        if x>x1:
+            print("Point is at the right of the line")
+    if y1==y2:
+        print("\n\nLine is horizontal")
+        if y<y1:
+            print("\nPoint is at the upper side of the line")
+        if y==y1:
+            print("\nPoint is on the line")
+        if y>y1:
+            print ("Point is at the lower side of the line")
+    if x1!=x2 and y1!=y2:
+        m=(y2-y1)/(x2-x1)
+        b=y1-m*x1
+        fun=y-(m*x)-b
+        if fun<0:
+            print("Point is below the line")
+        elif fun==0:
+            print("Point is on the line")
+        else:
+            print("Point is above the line")
+    c = Point(x,y)                              # Set the pixel coordinates
+    pt = Point(x1,y1)
+    line = Line(pt, Point(x2, y2))
+    win = GraphWin("Experiment_2", 1100, 600)   #create a new window
+    c.draw(win)                                 #Plot the pixel on new window
+    line.draw(win)
+    #win.getMouse()                              # Pause to view result
+    #win.close()                                 # Close window when done
+
+main()                                          #calling of main function
